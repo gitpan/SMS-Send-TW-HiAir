@@ -1,4 +1,4 @@
-SMS-Send-TW-HiAir version 0.01
+SMS-Send-TW-HiAir version 0.02
 ==============================
 
 The README is used to introduce the module and provide instructions on
@@ -33,10 +33,10 @@ COPYRIGHT AND LICENCE
 
 Put the correct copyright and licence information here.
 
-Copyright (C) 2008 by Tsung-Han Yeh
+Copyright (C) 2010 by Tsung-Han Yeh
 
 This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself, either Perl version 5.8.8 or,
+it under the same terms as Perl itself, either Perl version 5.8.9 or,
 at your option, any later version of Perl 5 you may have available.
 
 

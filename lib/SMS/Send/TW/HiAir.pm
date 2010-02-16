@@ -6,7 +6,7 @@ use WWW::Mechanize;
 
 use vars qw{$VERSION};
 BEGIN {
-   $VERSION = '0.01';
+   $VERSION = '0.02';
 }
 
 sub new {
@@ -25,6 +25,7 @@ sub send_sms {
    my $self   = shift;
    my %params = @_;
    my $baseurl = 'http://hiair.hinet.net/hweb/hiairpost_new.jsp';
+   my $posturl = 'http://hiair.hinet.net/jweb/send_check2.jsp';
    my $number = 0;
 
    # Get the message and destination
@@ -39,17 +40,15 @@ sub send_sms {
    
    # Should be ok now, right? Let's send it!
    # Input SMS_Message, Recipients
-   $ua->get($baseurl);
-   $ua->form_name("form1");
 
-   foreach (split(/[ ,]+/, $recipient))
-   {
-     $ua->field("tel", $_, ++$number);
-   }
+   $ua->post($posturl,
+		[ 'add_name' 	  => "0",
+		  'message'	  => $message,
+		  'tel'	  	  => $recipient,
+		  'tran_type'	  => 'now',
+		  'can'		  => "0",
+		  'can1'	  => "0"]);
 
-   $ua->field("add_name", "0");
-   $ua->field("message", $message);
-   $ua->submit();
 
    # Auth Login
    $ua->form_name("loginform");
